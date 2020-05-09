@@ -1,0 +1,17 @@
+{
+    "name": "donatas/php_sprintas_3",
+    "description": "3-ias darbas",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Helmutux",
+            "email": "donatas.kulvinskas@gmail.com"
+        }
+    ],
+    "require": {
+        "doctrine/orm": "^2.7"
+    },
+    "autoload": {
+        "psr-0": {"": "src/"}
+    }
+}
