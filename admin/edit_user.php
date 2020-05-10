@@ -14,11 +14,15 @@
 		$password = $_POST['password'];
 		$status = $_POST['status'];
 		$id = $_POST['id'];
-
-		$user = $entityManager->find('\User', $id);
 		
+		$user = $entityManager->find('\User', $id);
+
 		$user->setName($name);
-		$user->setPassword(MD5($password));
+		if($user->getPassword() == $password){
+			$user->setPassword($password);
+		} else {
+			$user->setPassword(MD5($password));
+		}
 		$user->setStatus($status);
 		
 		$entityManager->persist($user);

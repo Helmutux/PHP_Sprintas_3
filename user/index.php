@@ -36,7 +36,7 @@ if(isset($_GET['logout'])){
 			</div>
 			<div id="content">
 				<?php messages(); ?>
-				<h1>Straipsnių redagavimo puslapis</h1>
+				<h1>Straipsnių redagavimo laukas</h1>
 				<table>
 					<tr>
 						<th>Antraštės</th>
