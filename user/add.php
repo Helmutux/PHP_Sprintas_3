@@ -1,9 +1,9 @@
 <?php 
 require "../includes/config.php"; 
 require "../bootstrap.php";
-login_required_admin();
+login_required_user();
 
-//naujo įrašo pridėjimo algoritmas
+//naujo iraso pridejimo algoritmas
 if(isset($_POST['submit'])){
 	
 	$title = $_POST['title'];
@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
 	$entityManager->flush();
 	
 	$_SESSION['success'] = 'Straipsnis pridėtas!';
-	header('Location: '.DIRADMIN);
+	header('Location: '.DIRUSER);
 	exit();
 }
 ?>
@@ -38,11 +38,11 @@ if(isset($_POST['submit'])){
 	<main>
 		<div id="meniu">
 			<ul class="meniu">
-				<li><a href="<?php echo DIRADMIN;?>">Atgal</a></li>
+				<li><a href="<?php echo DIRUSER;?>">Atgal</a></li>
 				<li><a href="<?php echo DIR;?>" target="_blank">Vartotojo puslapis</a></li>
-				<li><a href="<?php echo DIRADMIN;?>?logout">Atsijungti</a></li>
-				<?php $user = $_SESSION['adminname'];?>
-				<li class="login_user"> Sveiki! Esate prisijungęs kaip <b><i><?php echo $user; ?></i></b> ir turite visas šio puslapio administratoriaus teises</li>
+				<li><a href="<?php echo DIRUSER;?>?logout">Atsijungti</a></li>
+				<?php $user = $_SESSION['username'];?>
+				<li class="login_user"> Sveiki! Esate prisijungęs kaip <b><i><?php echo $user; ?></i></b> ir turite galimybę įkelti naujus ir redaguoti esamus įrašus</li>
 			</ul>
 		</div>
 

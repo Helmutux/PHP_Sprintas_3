@@ -42,7 +42,7 @@ class User{
         $this->status=$isAdmin;
     }
     public function getId(){
-        $this->id;
+        return $this->id;
     }
     public function getName(){
         return $this->name;
@@ -52,7 +52,7 @@ class User{
         return $this->password;
     }
     public function getStatus(){
-        $this->status;
+        return $this->status;
     }
 }
 ?>

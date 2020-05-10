@@ -30,6 +30,13 @@ header a h1{
 ul{
     margin-block-start: 0.35em;
 }
+.login_user{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: relative;
+    left: 2em;
+    font-size: 14px;
+    color: darkslategray;
+}
 .meniu {
       display: inline-block;
       margin-bottom:	1.5em;
@@ -95,6 +102,9 @@ ul{
     padding: 3px 6px;
     text-decoration: none;
     font-size: 0.8em;
+}
+.delete:hover{
+    transform: scale(1.03);
 }
 footer{
     margin-bottom:10px;

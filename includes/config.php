@@ -16,6 +16,8 @@
 	define('DIR','http://localhost/Sprintas3/');
 
 	define('DIRADMIN','http://localhost/Sprintas3/admin/');
+	
+	define('DIRUSER','http://localhost/Sprintas3/user/');
 
 	define('SITETITLE','Prienų krašto naujienos');
 

@@ -22,6 +22,7 @@ require "includes/config.php";
 		<main>
 			<div>
 				<?php
+					//paimu duomenis apie visus straipsnius (įrašus) iš duomenų bazės ir atvaizduoju jų antraštes
 					$sql = "SELECT * FROM pages";
 					$rsm = new ResultSetMappingBuilder($entityManager);
 					$rsm->addRootEntityFromClassMetadata('Page', 'p');
@@ -35,8 +36,10 @@ require "includes/config.php";
 			<div id="content">
 				<?php	
 				if(!isset($_GET['p'])){
+					//siųlau pasirinkti norimą skaityti straipsnį
 					echo "<p>Norėdami skaityti naujienas, pasirinkite bet kurį straipsnį viršuje</p>";
 					} else {
+					//atvaizduoju pasirinktą straipsnį (antraštę ir turinį)	
 					$p = $_GET['p'];
 					$page = $entityManager->find('\Page', $p);
 					echo "<h4 class=\"pages read\">".$page->getTitle()."</h4>";
@@ -46,18 +49,18 @@ require "includes/config.php";
 			</div>
 		</main>
 		<footer id="footer">
-		<div>
-            D.Kulvinskas
-        </div>
-        <div>
-            2020-ieji, 56 karantino diena
-        </div>
-        <div>
-            <a href="http://donatas.site">Asmeninis studento puslapis</a>
-        </div>
-      	<div>
-			  &copy; Kuriant šį darbą panaudota informacija iš puslapio  <a href="http://geraprienuose.lt/">Gera Prienuose</a>
-		</div>
+			<div>
+				D.Kulvinskas
+			</div>
+			<div>
+				2020-ieji, 56 karantino diena
+			</div>
+			<div>
+				<a href="http://donatas.site">Asmeninis studento puslapis</a>
+			</div>
+			<div>
+				&copy; Kuriant šį darbą panaudota informacija iš puslapio  <a href="http://geraprienuose.lt/">Gera Prienuose</a>
+			</div>
 		</footer>
 	</body>
 </html>

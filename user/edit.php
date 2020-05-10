@@ -1,12 +1,10 @@
 <?php 
 	require "../includes/config.php"; 
-	require "../bootstrap.php";
+	require "../bootstrap.php"; 
+	login_required_user();
 
-	login_required_admin();
-
-	
 	if(!isset($_GET['id']) || $_GET['id'] == ''){
-		header('Location: '.DIRADMIN); 
+		header('Location: '.DIRUSER); 
 	}
 	//redagavimo algoritmas
 	if(isset($_POST['submit'])){
@@ -23,7 +21,7 @@
 		$entityManager->flush();
 
 		$_SESSION['success'] = 'Įrašas atnaujintas!';
-		header('Location: '.DIRADMIN);
+		header('Location: '.DIRUSER);
 		exit();
 	}
 ?>
@@ -44,11 +42,11 @@
 		<main>
 			<div id="meniu">
 				<ul class="meniu">
-					<li><a href="<?php echo DIRADMIN;?>">Atgal</a></li>
+					<li><a href="<?php echo DIRUSER;?>">Atgal</a></li>
 					<li><a href="<?php echo DIR;?>" target="_blank">Vartotojo puslapis</a></li>
-					<li><a href="<?php echo DIRADMIN;?>?logout">Atsijungti</a></li>
-					<?php $user = $_SESSION['adminname'];?>
-					<li class="login_user"> Sveiki! Esate prisijungęs kaip <b><i><?php echo $user; ?></i></b> ir turite visas šio puslapio administratoriaus teises</li>
+					<li><a href="<?php echo DIRUSER;?>?logout">Atsijungti</a></li>
+					<?php $user = $_SESSION['username'];?>
+					<li class="login_user"> Sveiki! Esate prisijungęs kaip <b><i><?php echo $user; ?></i></b> ir turite galimybę įkelti naujus ir redaguoti esamus įrašus</li>
 				</ul>
 			</div>
 			<div id="content">
