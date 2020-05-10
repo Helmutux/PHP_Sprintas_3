@@ -12,7 +12,7 @@ Paleidimas:
 - composer'io pagalba ten pat suinstaliuoti ORM Doctrine;
 - terminale paleisti:
   vendor/bin/doctrine orm:schema-tool:update --force
-Prisijungimui prisijungimo lange (localhost/Sprintas3/admin arba localhost/Sprintas3/user - abu veikia vienodai npriklausomai nuo prisijungiančiojo statuso) naudoti kombinacijas (vardas, slaptažodis):
+Prisijungimui prisijungimo lange (localhost/Sprintas3/admin arba localhost/Sprintas3/user - abu veikia vienodai nepriklausomai nuo prisijungiančiojo statuso) naudoti kombinacijas (vardas, slaptažodis):
 Donatas, 1234 (admin.funkcionalas),
 Mindaugas, 5555 (admin.funkcionalas),
 arba
