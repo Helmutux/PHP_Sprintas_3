@@ -1,5 +1,10 @@
 # PHP_Sprintas_3
-Minimalistinė turinio valdymo sistema (CMS)
+Minimalistinė turinio valdymo sistema (CMS).
+Realizuota:
+1. Galimybė puslapio lankytojui skaityti visus įrašus.
+2. Galimybė registruotam vartotojui (papildomai) įkelti naujus ir redaguoti esamus įrašus.
+3. Galimybė administratoriui (papildomai) trinti esamus įrašus, įkelti į DB, redaguoti ir trinti registruotus vartotojus.
+
 Paleidimas:
 - susikurti db mano_tvs ir užkrauti į ją lenteles su įrašais iš mano_tvs.sql (importuoti);
 - darbinį katalogą su failais persivadinti iš PHP_Sprintas_3 į Sprintas3 ir įsitikinti, kad katalogas yra pagrindiniame localhost medyje (localhost/Sprintas3)
@@ -7,7 +12,7 @@ Paleidimas:
 - composer'io pagalba ten pat suinstaliuoti ORM Doctrine;
 - terminale paleisti:
   vendor/bin/doctrine orm:schema-tool:update --force
-Prisijungimui administratoriaus lange naudoti kompbinacijas (vardas, slaptažodis):
-Donatas, 1234
+Prisijungimui prisijungimo lange (localhost/Sprintas3/admin arba localhost/Sprintas3/user - abu veikia vienodai npriklausomai nuo prisijungiančiojo statuso) naudoti kombinacijas (vardas, slaptažodis):
+Donatas, 1234 (admin.funkcionalas)
 arba
-Admin, admin
+Mindaugas, 5555 (registr.vartot.funkcionalas)
