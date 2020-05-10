@@ -21,7 +21,9 @@
 			$_SESSION['admin_authorized'] = true;
 			header('Location: '.DIRADMIN);
 			exit();
-		} elseif ((mysqli_num_rows($result)==1) && ($r->status==0)) {
+		} 
+		//user
+		elseif ((mysqli_num_rows($result)==1) && ($r->status==0)) {
 			$_SESSION['username'] = $user;
 			$_SESSION['user_authorized'] = true;
 			header('Location: '.DIRUSER);
