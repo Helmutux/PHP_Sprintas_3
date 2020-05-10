@@ -20,6 +20,17 @@ if(isset($_GET['delpage'])){
     header('Location: ' .DIRADMIN);
    	exit();
 }
+//vartotojo trynimo algoritmas
+if(isset($_GET['deluser'])){
+	$deluser = $_GET['deluser'];
+	$user = $entityManager->find('\User', $deluser);
+	$entityManager->remove($user);
+	$entityManager->flush();
+
+    $_SESSION['success'] = "Įrašas ištrintas"; 
+    header('Location: ' .DIRADMIN);
+   	exit();
+}
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -31,8 +42,16 @@ if(isset($_GET['delpage'])){
 		<link href="<?php echo DIR;?>css/style.css" rel="stylesheet" type="text/css" />
 		<script language="JavaScript" type="text/javascript">
 			function delpage(id, title){
-				if (confirm("Ar tikrai norite ištrinti įrašą '" + title + "'")){
+				
+				if (confirm("Ar tikrai norite ištrinti įrašą?")){
 					window.location.href = '<?php echo DIRADMIN;?>?delpage=' + id;
+				}
+			}
+		</script>
+		<script language="JavaScript" type="text/javascript">
+			function deluser(id, name){
+				if (confirm("Ar tikrai norite ištrinti vartotoją?")){
+					window.location.href = '<?php echo DIRADMIN;?>?deluser=' + id;
 				}
 			}
 		</script>
@@ -58,7 +77,8 @@ if(isset($_GET['delpage'])){
 				<?php 	
 					messages();
 				?>
-				<h1>Straipsnių redagavimo puslapis</h1>
+				<!-- STRAIPSNIU redagavimas -->
+				<h1>Straipsnių redagavimo laukas</h1>
 				<table>
 					<tr>
 						<th>Antraštės</th>
@@ -79,6 +99,41 @@ if(isset($_GET['delpage'])){
 					?>
 				</table>
 				<p><a href="<?php echo DIRADMIN;?>add.php" class="button">Pridėti straipsnį</a></p>
+			</div>
+			<!-- REGISTRUOTU VARTOTOJU redagavimas -->
+			<div id="content">
+				<?php 	
+					messages();
+				?>
+				<h1>Registruotų vartotojų redagavimo laukas</h1>
+				<table>
+					<tr>
+						<th>Vartotojai</th>
+						<th>Funkcionalas</th>
+						<th>Galimi veiksmai</th>
+					</tr>
+					<?php
+					$sql = "SELECT * FROM users WHERE id > 1 ORDER BY id";
+					$rsm = new ResultSetMappingBuilder($entityManager);
+					$rsm->addRootEntityFromClassMetadata('User', 'p');
+					$query = $entityManager->createNativeQuery($sql, $rsm);
+					$users = $query->getResult();
+					foreach($users as $user){
+						echo "<tr>";
+						echo "<td>".$user->getName()."</td>";
+						if($user->getStatus()==1) { 
+							echo "<td>Administratorius</td>";
+						} 
+						else 
+						{ 
+							echo "<td>Paprastas vartotojas</td>";
+						};
+						echo "<td><a class=\"edit\" href=\"".DIRADMIN."edit_user.php?id=".$user->getId()."\">Redaguoti</a> <a class=\"delete\" href=\"javascript:deluser(".$user->getId().");\">Trinti</a></td>";
+						echo "</tr>";
+					}
+					?>
+				</table>
+				<p><a href="<?php echo DIRADMIN;?>add_user.php" class="button">Pridėti naują</a></p>
 			</div>
 		</main>
 		<footer>

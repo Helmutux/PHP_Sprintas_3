@@ -31,7 +31,7 @@ if(isset($_GET['logout'])){
 					<li><a href="<?php echo DIR;?>" target="_blank">Vartotojo puslapis</a></li>
 					<li><a href="<?php echo DIRUSER;?>?logout">Atsijungti</a></li>
 					<?php $user = $_SESSION['username'];?>
-					<li class="login_user"> Sveiki! Esate prisijungęs kaip <b><i><?php echo $user; ?></i></b> ir turite galimybę įkelti naujus ir redaguoti esamus įrašus</li>
+					<li class="login_user"> Sveiki! Esate prisijungęs kaip <b><i><?php echo $user; ?></i></b> ir turite galimybę įkelti naujus bei redaguoti esamus įrašus</li>
 				</ul>
 			</div>
 			<div id="content">
